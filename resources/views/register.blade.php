@@ -9,7 +9,17 @@
             font-family: Arial, sans-serif;
             background-color: #f5f3ff;
         }
-
+        .main-reg{
+            width: 100%;
+            height: 100vh;
+        }
+        .center-div{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .container {
             width: 900px;
             margin: 50px auto;
@@ -59,7 +69,8 @@
         input {
             width: 100%;
             padding: 12px;
-            margin-top: 8px;
+            margin-top: 15px;
+            margin-bottom: 15px;
             box-sizing: border-box;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -98,7 +109,8 @@
 </head>
 
 <body>
-
+<div class="main-reg">
+<div class="center-div">
 <div class="container">
 
     <div class="left">
@@ -120,12 +132,12 @@
 
         <p>Enter your information to create your account.</p>
 
-        <form action="/register" method="POST">
+        <form action="/login" method="POST">
 
             @csrf
 
             <label>Name</label>
-            <input type="text" name="name" placeholder="Enter your name"
+            <input class="my-2" type="text" name="name" placeholder="Enter your name"
                    value="{{ old('name') }}">
 
             @error('name')
@@ -135,7 +147,7 @@
             <br>
 
             <label>Email address</label>
-            <input type="email" name="email" placeholder="Enter your email"
+            <input class="my-2" type="email" name="email" placeholder="Enter your email"
                    value="{{ old('email') }}">
 
             @error('email')
@@ -145,7 +157,7 @@
             <br>
 
             <label>Password</label>
-            <input type="password" name="password" placeholder="Enter your password">
+            <input class="my-2" type="password" name="password" placeholder="Enter your password">
 
             @error('password')
                 <div class="error">{{ $message }}</div>
@@ -154,20 +166,21 @@
             <br>
 
             <label>Confirm Password</label>
-            <input type="password"
+            <input class="my-2" type="password"
                    name="password_confirmation"
                    placeholder="Confirm your password">
 
             <button type="submit">Create Account</button>
 <p class="login-link">
     Already have an account?
-    <a href="/login">Login</a>
+    <a class="my-2" href="/login">Login</a>
 </p>
         </form>
 
     </div>
 
 </div>
-
+</div>
+</div>
 </body>
 </html>
