@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 
@@ -67,13 +67,19 @@ Route::get('/dashboard', function () {
     $user = User::find(session('user_id'));
 
     return view('dashboard', compact('user'));
-});
-
-
+})->name('dashboard');
+//tripes
+Route::get('/trips', function () {
+    return 'Trips page - Coming soon';
+})->name('trips');
+//calendar
+Route::get('/calendar', function () {
+    return 'Calendar page - Coming soon';
+})->name('calendar');
 // Logout
-Route::get('/logout', function () {
+Route::post('/logout', function () {
 
     session()->forget('user_id');
 
     return redirect('/login');
-});
+})->name('logout');

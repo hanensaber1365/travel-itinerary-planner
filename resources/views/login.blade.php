@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,19 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f5f3ff;
+        }
+
+        .main-login {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .center-div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
@@ -79,64 +93,101 @@
         label {
             font-weight: bold;
         }
-        .register-link {
-    text-align: center;
-    margin-top: 20px;
-}
 
-.register-link a {
-    color: #7546e8;
-    text-decoration: none;
-    font-weight: bold;
-}
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .register-link a {
+            color: #7546e8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Login Error Message */
+        .error-message {
+            background-color: #ffe5e5;
+            color: #d93025;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="main-login">
+    <div class="center-div">
 
-    <div class="left">
+        <div class="container">
 
-        <img src="{{ asset('images/logo.png') }}" class="logo">
+            <div class="left">
 
-        <h2>Welcome back!</h2>
+                <img src="{{ asset('images/logo.png') }}" class="logo">
 
-        <p>
-            Log in to continue planning<br>
-            your next adventure
-        </p>
+                <h2>Welcome back!</h2>
+
+                <p>
+                    Log in to continue planning<br>
+                    your next adventure
+                </p>
+
+            </div>
+
+            <div class="right">
+
+                <h1>Login to your account</h1>
+
+                <p>Enter your credentials to access your account.</p>
+
+                {{-- Show login error --}}
+                @if(session('error'))
+                    <div class="error-message">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                <form action="/login" method="POST">
+
+                    @csrf
+
+                    <label>Email address</label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                    >
+
+                    <br><br>
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter your password"
+                    >
+
+                    <button type="submit">
+                        Login
+                    </button>
+
+                    <p class="register-link">
+                        Don't have an account?
+                        <a href="/register">Register</a>
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
 
     </div>
-
-    <div class="right">
-
-        <h1>Login to your account</h1>
-
-        <p>Enter your credentials to access your account.</p>
-
-        <form action="/login" method="POST">
-
-            @csrf
-
-            <label>Email address</label>
-            <input type="email" name="email" placeholder="Enter your email">
-
-            <br><br>
-
-            <label>Password</label>
-            <input type="password" name="password" placeholder="Enter your password">
-
-            <button type="submit">Login</button>
-            <p class="register-link">
-    Don't have an account?
-    <a href="/register">Register</a>
-</p>
-
-        </form>
-
-    </div>
-
 </div>
 
 </body>
