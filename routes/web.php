@@ -76,18 +76,8 @@ Route::get('/trips', function () {
 Route::get('/calendar', function () {
     return 'Calendar page - Coming soon';
 })->name('calendar');
-//app
-/*Route::get('/app',function(){
-     if (!session()->has('user_id')) {
-        return redirect('/login');
-    }
-
-    $user = User::find(session('user_id'));
-
-    return view('app', compact('user'));
-});*/
 // Logout
-Route::get('/logout', function () {
+Route::post('/logout', function () {
 
     session()->forget('user_id');
 
