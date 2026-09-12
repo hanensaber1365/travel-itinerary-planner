@@ -9,7 +9,17 @@
             font-family: Arial, sans-serif;
             background-color: #f5f3ff;
         }
-
+        .main-login{
+            width: 100%;
+            height: 100vh;
+        }
+        .center-div{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .container {
             width: 900px;
             margin: 50px auto;
@@ -93,7 +103,8 @@
 </head>
 
 <body>
-
+<div class="main-login">
+<div class="center-div">
 <div class="container">
 
     <div class="left">
@@ -138,6 +149,7 @@
     </div>
 
 </div>
-
+</div>
+</div>
 </body>
 </html>
