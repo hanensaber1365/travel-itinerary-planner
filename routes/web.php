@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TripController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -64,11 +65,13 @@ Route::get('/dashboard', function () {
         return redirect('/login');
     }
 
-    $user = User::find(session('user_id'));
-
-    return view('dashboard', compact('user'));
+    return view('dashboard');
 })->name('dashboard');
 //tripes
+Route::prefix('trips/')->controller(TripController::class)->name('trip.')->group(function(){
+    Route::get('/trip','getAllTrips')->name('trips');
+    Route::get('/createTrip','createTrip')->name('createTrip');
+});
 Route::get('/trips', function () {
     return 'Trips page - Coming soon';
 })->name('trips');

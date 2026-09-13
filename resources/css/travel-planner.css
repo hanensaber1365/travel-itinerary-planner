@@ -2,6 +2,9 @@
     --violet: #7C4DFF;
     --violet-dark: #6c3ff0;
     --violet-soft: #F1EDFF;
+    --green-color:#20c997;
+    --yellow-color:#ffc107;
+    --blue-color:#0d6efd;
     --text-muted: #9CA3AF;
 }
 
@@ -116,9 +119,7 @@ body {
     font-weight: 500;
 }
 
-/* =========================
-   Promo Card
-========================= */
+/*Promo Card */
 
 .sidebar-promo {
     background: var(--violet-soft);
@@ -142,9 +143,7 @@ body {
     font-size: 22px;
 }
 
-/* =========================
-   Logout
-========================= */
+/* Logout */
 
 .logout-btn {
     color: var(--text-muted);
@@ -162,9 +161,7 @@ body {
     background: #F9FAFB;
 }
 
-/* =========================
-   Header
-========================= */
+/*Header*/
 
 .topbar {
     background: #F8F9FC;
@@ -175,59 +172,55 @@ body {
     z-index: 10;
 }
 
-/* =========================
-   Main Column
-========================= */
+/* Main Column */
 
 .main-column {
     min-width: 0;
     flex: 1;
 }
 
-/* =========================
-   Page Content
-========================= */
+/*Page Content*/
 
 .page-content {
     width: 100%;
 }
-
-/* =========================
-   Notification
-========================= */
-
-.notif-btn {
-    width: 40px;
-    height: 40px;
-
+/*dashbord page*/
+.box-icon{
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    background: #FFFFFF;
-    border: 1px solid #F0F0F3;
-
-    color: #6B7280;
-
-    font-size: 16px;
+    font-size: 22px;
 }
-
-.notif-btn:hover {
-    background: #F5F5F8;
+.box-icon-gre{
+    background: #c6ffee;
+    color: var(--green-color);
 }
-
-.notif-dot {
-    position: absolute;
-
-    top: 9px;
-    right: 11px;
-
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: #EF4444;
+.box-icon-yel{
+    background: #ffe79e;
+    color: var(--yellow-color);
 }
-
-.dropdown-toggle::after {
-    color: var(--text-muted);
+.box-icon-blu{
+    background: #cee2ff;
+    color: var(--blue-color);
+}
+.trips-view a{
+    text-decoration: none;
+    color: var(--violet);
+    font-size: 20px;
+}
+.trips-view a::hover{
+    color: var(--violet-dark);
+}
+.img-upcoming img{
+    width: 150px;
+}
+.text-violet{
+    color: var(--violet);
+}
+.all-trip-img img{
+    width: 150px;
 }
