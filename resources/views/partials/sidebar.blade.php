@@ -10,7 +10,7 @@
         @php
     $navItems = [
         ['route' => 'dashboard', 'label' => 'Dashboard', 'icon' => 'bi-grid-fill'],
-        ['route' => 'trips',     'label' => 'My Trips',  'icon' => 'bi-suitcase-fill'],
+        ['route' => 'trip.trips',     'label' => 'My Trips',  'icon' => 'bi-suitcase-fill'],
         ['route' => 'calendar',  'label' => 'Calendar',  'icon' => 'bi-calendar-event'],
     ];
 @endphp
@@ -31,7 +31,7 @@
         </div>
         <p class="fw-semibold mb-1 text-dark" style="font-size: 14px;">Ready for your next adventure?</p>
         <p class="text-muted mb-3" style="font-size: 12px;">Plan, organize and enjoy your trips with ease.</p>
-        <a href="{{ route('trips') }}" class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2">
+        <a href="{{ route('trip.createTrip') }}" class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2">
             <i class="bi bi-plus-lg"></i> Create new trip
         </a>
     </div>

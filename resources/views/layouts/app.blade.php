@@ -13,6 +13,15 @@
     @vite('resources/css/travel-planner.css')
 
     @stack('styles')
+    {{-- عشان ال vite مش راضي يتعرف علي url الصوره الي في dashboard --}}
+    <style>
+    .trip-de {
+        background-image: url("{{ asset('images/pais.jpg') }}") !important;
+        background-position: center bottom;
+        background-size: cover;
+        
+    }
+</style>
 </head>
 <body>
 
