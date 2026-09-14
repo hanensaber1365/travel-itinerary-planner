@@ -132,7 +132,7 @@
 
         <p>Enter your information to create your account.</p>
 
-        <form action="/login" method="POST">
+        <form action="{{ url('/register') }}" method="POST">
 
             @csrf
 

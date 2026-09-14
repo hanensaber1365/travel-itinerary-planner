@@ -11,7 +11,8 @@
     $navItems = [
         ['route' => 'dashboard', 'label' => 'Dashboard', 'icon' => 'bi-grid-fill'],
         ['route' => 'trip.trips',     'label' => 'My Trips',  'icon' => 'bi-suitcase-fill'],
-        ['route' => 'calendar',  'label' => 'Calendar',  'icon' => 'bi-calendar-event'],
+        ['route' => 'profile',   'label' => 'Profile',   'icon' => 'bi-person'],
+        ['route' => 'settings',  'label' => 'Settings',  'icon' => 'bi-gear'],
     ];
 @endphp
 
