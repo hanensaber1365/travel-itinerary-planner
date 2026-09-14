@@ -59,26 +59,75 @@ Route::post('/register', function (Request $request) {
 
 
 // Dashboard
-Route::get('/dashboard', function () {
+/*Route::get('/dashboard', function () {
 
     if (!session()->has('user_id')) {
         return redirect('/login');
     }
 
-    return view('dashboard');
+    $trips = \App\Models\Trip::where('user_id', session('user_id'))
+        ->get();
+
+    $nextTrip = $trips
+        ->where('start_date', '>=', now()->toDateString())
+        ->sortBy('start_date')
+        ->first();
+
+    return view('dashboard', compact('trips', 'nextTrip'));
+
+})->name('dashboard');*/
+Route::get('/dashboard', function () {
+    if (!session()->has('user_id')) {
+        return redirect('/login');
+    }
+
+    $trips = \App\Models\Trip::where('user_id', session('user_id'))
+        ->get();
+
+    $nextTrip = $trips
+        ->where('start_date', '>=', now()->toDateString())
+        ->sortBy('start_date')
+        ->first();
+
+    return view('dashboard', compact('trips', 'nextTrip'));
 })->name('dashboard');
 //tripes
 Route::prefix('trips/')->controller(TripController::class)->name('trip.')->group(function(){
     Route::get('/trip','getAllTrips')->name('trips');
     Route::get('/createTrip','createTrip')->name('createTrip');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::put('/update/{id}', 'update')->name('update');
+    Route::delete('/delete/{id}', 'delete')->name('delete');
+    Route::get('/tripDeti/{id}','getTrip')->where('id','[0-9]+')->name('tripDeti');
 });
 Route::get('/trips', function () {
     return 'Trips page - Coming soon';
 })->name('trips');
-//calendar
-Route::get('/calendar', function () {
-    return 'Calendar page - Coming soon';
-})->name('calendar');
+//profile
+Route::get('/profile', function () {
+
+    if (!session()->has('user_id')) {
+        return redirect('/login');
+    }
+
+    $user = User::findOrFail(session('user_id'));
+
+    return view('profile', compact('user'));
+
+})->name('profile');
+//settings
+Route::get('/settings', function () {
+
+    if (!session()->has('user_id')) {
+        return redirect('/login');
+    }
+
+    $user = User::findOrFail(session('user_id'));
+
+    return view('settings', compact('user'));
+
+})->name('settings');
 // Logout
 Route::post('/logout', function () {
 
